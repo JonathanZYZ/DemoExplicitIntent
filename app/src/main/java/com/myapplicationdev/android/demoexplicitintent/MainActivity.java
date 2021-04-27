@@ -53,22 +53,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int 				resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Only handle when 2nd activity closed normally
-        //  and data contains something
         if(resultCode == RESULT_OK){
             if (data != null) {
-                // Get data passed back from 2nd activity
                 String like = data.getStringExtra("like");
                 String statement = "";
-                // If it is activity started by clicking 				//  Superman, create corresponding String
                 if(requestCode == requestCodeForSupermanStats){
                     statement = "You " + like + " Superman";
                 }
-                // If 2nd activity started by clicking
-                //  Batman, create a corresponding String
                 if(requestCode == requestCodeForBatmanStats){
                     statement = "You " + like + " Batman";
                 }
